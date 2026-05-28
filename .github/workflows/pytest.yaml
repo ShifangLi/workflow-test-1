@@ -1,0 +1,27 @@
+name: Run Pytest
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # 次はPython環境の指定です
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.11
+
+      # 次にコードを動かすために必要なライブラリをインストールする必要
+      - name: Install dependencies
+        run: pip install -r requirements.txt # コマンドを書くときはrunを記述
+
+      # 最後は、pytestを実行するためのコマンド記述を書く
+      - name: Run Pytest
+        run: pytest
