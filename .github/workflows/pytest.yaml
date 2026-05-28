@@ -20,7 +20,7 @@ jobs:
 
       # 次にコードを動かすために必要なライブラリをインストールする必要
       - name: Install dependencies
-        run: pip install -r requirements.txt # コマンドを書くときはrunを記述
+        run: pip install -r .github/workflows/requirements.txt # コマンドを書くときはrunを記述
 
       # 最後は、pytestを実行するためのコマンド記述を書く
       - name: Run Pytest
